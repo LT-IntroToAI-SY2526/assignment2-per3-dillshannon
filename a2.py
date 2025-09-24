@@ -36,13 +36,32 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
         #   and come back to this one afterwards
         elif pattern[pind] == "%":
             if pind == len(pattern) - 1: # if % is the last element in pattern
-                
+                combined = " ".join(source[sind:])
+                result.append(combined)
+                #print(result)
+                return result
+            else:
+                pind += 1
+                accum = ""
+                while pattern[pind] != source[sind]:
+                    accum += source[sind] + " "
+                    sind += 1
+                    
+                    if sind == len(source):
+                        return None
+                    
+                result.append(accum.strip)
+
         # 3) if we reached the end of the source but not the pattern
         elif sind == len(source):
-            print("end of source, but not pattern")
+           # print("end of source, but not pattern")
             return None
         # 4) if the current thing in the pattern is an _
-
+        elif pattern[pind] == "_":
+            result.append(source[sind])
+            # print(result)
+            pind += 1
+            sind += 1
         # 5) if the current thing in the pattern is the same as the current thing in the
         # source
         elif pattern[pind] == source[sind]:
@@ -54,10 +73,10 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
         # indicates the current thing it pattern doesn't match the current thing in
         # source
         else:
-            print(pattern[pind] + " " + source[sind])
-            print("End of assert, return none")
+           # print(pattern[pind] + " " + source[sind])
+           # print("End of assert, return none")
             return None
-    print("End of assert, return the list")
+    # print("End of assert, return the list")
     return result
 
 
