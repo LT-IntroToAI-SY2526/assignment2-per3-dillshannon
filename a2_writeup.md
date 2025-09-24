@@ -12,9 +12,9 @@ This assignment is about learning and applying the while loop and iterating thro
 
 ## Reflection Questions
 1. What was difficult for you while completing the match function?
-
+I didn't fully understand the indentation and how the elif is dictated by the indentations. I now understand that if it is supposed to be inside, it has to be tabbed over once.
 
 
 2. Explain how you could use the match function for extracting information from a movie database.
-
+I could use a list of movies and search to match for a specific movie to see if it is in the list of movies.
 
